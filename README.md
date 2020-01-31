@@ -40,7 +40,7 @@ When you go to a webpage, the site's address and domain name are tied to the IP 
 
 - [x] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 
-We make .post methods that correlate to updating as such in the U in CRUD. When making a put request, we are sending back updated information of the previous API response. Similarily, .delete and .get stand for delete and create in CRUD, sequentially. With these methods, we are making requests to delete and add new information to the API.
+When making a .put request, we are sending back updated information of the previous API response. It stands for updating in the CRUD acronym. Similarily, .delete and .post stand for delete and create in CRUD, sequentially. Lastly, .get correlates to read in CRUD.
 
 ## Project Set Up
 
