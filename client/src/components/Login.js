@@ -17,7 +17,7 @@ class Login extends React.Component {
 			}
 		});
 	};
-
+	// username === Lambda School && password === i<3Lambd4
 	login = (e) => {
 		e.preventDefault();
 		axios
@@ -25,7 +25,7 @@ class Login extends React.Component {
 			.then((res) => {
 				console.log('TOKEN:', res.data.payload);
 				localStorage.setItem('token', res.data.payload);
-				this.props.history.push('/protected');
+				this.props.history.push('/bubble-page');
 			})
 			.catch((err) => console.log(err));
 	};
