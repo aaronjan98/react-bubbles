@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import axios from 'axios';
 
 const initialColor = {
 	color: '',
@@ -23,17 +24,32 @@ const ColorList = ({ colors, updateColors }) => {
 		// think about where will you get the id from...
 		// where is it saved right now?
 		axiosWithAuth()
-			.post('http://localhost:5000/api/colors', colorToEdit.id)
+			.put(`http://localhost:5000/api/colors/${colorToEdit.id}`, colorToEdit)
 			.then((res) => {
-				console.log('RES.DATA:', res.data);
-				// localStorage.setItem('token', res.data.payload);
-				// this.props.history.push('/bubble-page');
+				console.log('RES.DATA:', res.data, colors);
+				axiosWithAuth()
+					.get('/api/colors')
+					.then((res) => {
+						console.log('res.data', res.data);
+						updateColors(res.data);
+					})
+					.catch((err) => {
+						console.log(err);
+					});
 			})
 			.catch((err) => console.log(err));
 	};
+	console.log('colors', colors);
 
 	const deleteColor = (color) => {
 		// make a delete request to delete this color
+		console.log('delete this color', color);
+		axios
+			.delete(`http://localhost:5000/api/colors/${color.id}`)
+			.then((res) => {
+				console.log('res from deleteColor', res);
+			})
+			.catch((err) => console.log(err));
 	};
 
 	return (
