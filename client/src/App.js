@@ -10,18 +10,16 @@ import './styles.scss';
 function App() {
 	return (
 		<div className="App">
+			<h1>Welcome to the Bubble App</h1>
 			{/* <ul>
 				<li>
 					<Link to="/login">Login</Link>
-				</li>
-				<li>
-					<Link to="/protected">Friends List</Link>
 				</li>
 			</ul> */}
 			<Switch>
 				<PrivateRoute path="/bubble-page" component={BubblePage} />
 				{/* <PrivateRoute path="/" component={} /> */}
-				<Route path="/login" component={Login} />
+				{/* <Route path="/login" component={Login} /> */}
 				<Route component={Login} />
 			</Switch>
 			{/* 
