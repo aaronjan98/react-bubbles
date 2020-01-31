@@ -14,7 +14,7 @@ useEffect(() => {
   .get('/api/colors')
   .then(res => {
       console.log('res.data', res.data);
-       setColorList(res.data);     
+      setColorList(res.data);     
   })
   .catch(err => {
       console.log(err)       
